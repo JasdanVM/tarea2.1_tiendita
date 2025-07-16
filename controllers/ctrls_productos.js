@@ -203,7 +203,7 @@ export const deleteProducto = async (req, res) => {
 export const getProductosDisponibles = async (req, res) => {
     try {
         const productosDB = await getProductos();
-        productosDB = productosDB.filter(producto => producto.disponible === true);
+        let productosDisponibles = productosDB.filter(producto => producto.disponible == true);
         
         if (productosDisponibles.length === 0) {
             return res.status(404).json({
