@@ -1,4 +1,4 @@
-# tareaAPI_productos
+# tarea2.1_tiendita_docker
 API RESTful que utiliza Node.js y Express, para gestionar un listado de productos y categorías en una base de datos MySQL.
 
 Tarea de Jason Daniel Velásquez Mejía - 20212000937  
