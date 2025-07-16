@@ -46,7 +46,7 @@ export const insertProducto = async (producto) => {
             (nombre, precio, descripcion, disponible, categoria_id)
             VALUES (?, ?, ?, ?, ?);`
         
-        await conn.execute(query, [id, nombre, precio, descripcion, disponible, fecha_ingreso, categoria_id]);
+        await conn.execute(query, [ nombre, precio, descripcion, disponible, categoria_id]);
 
         conn.commit();
 
@@ -64,13 +64,13 @@ export const updateProducto = async (id, producto) => {
     const conn = await pool.getConnection();
     try {
         conn.beginTransaction();
-        const { nombre, precio, descripcion, disponible, fecha_ingreso, categoria_id } = producto;
+        const { nombre, precio, descripcion, disponible, categoria_id } = producto;
         const query = `UPDATE productos
-            SET nombre = ?, precio = ?, descripcion = ?, disponible = ?, fecha_ingreso = ?,
+            SET nombre = ?, precio = ?, descripcion = ?, disponible = ?,
             categoria_id = ?
             WHERE id = ?;`;
 
-        await conn.execute(query, [nombre, precio, descripcion, disponible, fecha_ingreso, categoria_id, id]);
+        await conn.execute(query, [nombre, precio, descripcion, disponible, categoria_id, id]);
 
         conn.commit();
 
@@ -228,7 +228,7 @@ export const isCategoriaNombreUnique = async (nombre) => {
 
 
 export const hasCategoriaProductos = async (id) => {
-    const query = `SELECT COUNT(*) AS total FROM productos WHERE id = ?`;
+    const query = `SELECT COUNT(*) AS total FROM productos WHERE categoria_id = ?`;
     const [rows] = await pool.query(query, [id]);
     return rows[0].total > 0;
 };

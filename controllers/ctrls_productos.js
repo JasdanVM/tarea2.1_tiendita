@@ -97,31 +97,26 @@ export const searchByQuery = (req, res) => {
 //     return Math.max(...ids, 0) + 1;
 // }
 
-export const createProducto = async(req, res) => {
-    
-    const data = req.body
+export const createProducto = async (req, res) => {
+    const data = req.body;
 
-    const { success, error, data: safeData } = validateProducto(data)
+    const { success, error, data: safeData } = await validateProducto(data);
 
     if (!success) {
-        res.status(400).json(error) // si la validación falla, respondemos con un error 400
+        return res.status(400).json(error); 
     }
 
     try {
-        const response = await insertProducto(safeData)
-
-        res
-        .status(201)
-        .json(response) 
+        const response = await insertProducto(safeData);
+        res.status(201).json(response);
     } catch (error) {
-
-        console.error(error); 
+        console.error(error);
         res.status(400).json({
-            message: 'Error al ingresar la película'
-        })
-
+            message: 'Error al ingresar el producto'
+        });
     }
-}
+};
+
 
 export const patchProducto = async (req, res) => {
     const { id } = req.params;

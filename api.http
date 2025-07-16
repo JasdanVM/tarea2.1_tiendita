@@ -21,7 +21,8 @@ Content-Type: application/json
 {
   "nombre": "Xbox Controller",
   "precio": 1290,
-  "descripcion": "Control inalámbrico con diseño ergonómico y compatibilidad multiplataforma."
+  "descripcion": "Control inalámbrico con diseño ergonómico y compatibilidad multiplataforma.",
+  "categoria_id": 2
 }
 
 
@@ -34,24 +35,14 @@ Content-Type: application/json
   "precio": 3150.49,
   "disponible": 0,
   "descripcion": "Control inalámbrico con diseño ergonómico y compatibilidad multiplataforma. versión Pro con accesorios y botones extra."
+  "categoria": 2
 }
 
 ### Borrar un Producto por ID
 DELETE http://localhost:5000/productos/12
 
-### Obtener los Productos Disponibles
-GET http://localhost:5000/productos/disponibles
-
-### Crear otro Producto
-POST http://localhost:5000/productos
-Content-Type: application/json
-
-{
-   "nombre": "Nintendo Switch OLED",
-   "precio": 10500.00,
-   "disponible": false
-}
-//fallará por falta de descripción
+# ### Obtener los Productos Disponibles
+# GET http://localhost:5000/productos/disponibles
 
 
 ### Listar Categorías
@@ -68,7 +59,7 @@ POST http://localhost:5000/categorias
 Content-Type: application/json
 
 {
-  "nombre": "Otro"
+  "nombre": "Oficina"
 }
 
 ### Actualizar una Categoría por ID

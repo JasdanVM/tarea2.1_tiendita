@@ -1,5 +1,6 @@
 import zod from 'zod';
 import pool from '../config/db.js';
+import { getCategoriaById } from '../models/mdls_productos.js';
 
 const productoSchema = zod.object({
   "nombre": zod.string().min(1, 'El nombre es requerido'),

@@ -24,12 +24,12 @@ productRouter.get('/productos', (req, res) => {
 productRouter.get('/categorias', (req, res) => {
     getAllCategorias(req, res);
 })
-productRouter.get('productos/search', search);
-productRouter.get('productos/disponibles',  getProductosDisponibles);
+productRouter.get('/productos/search', search);
+productRouter.get('/productos/disponibles',  getProductosDisponibles);
 productRouter.get('/productos/:id', searchProductoById);
-productRouter.post('productos/', createProducto);
-productRouter.put('productos/:id', patchProducto);
-productRouter.delete('productos/:id', deleteProducto);
+productRouter.post('/productos/', createProducto);
+productRouter.put('/productos/:id', patchProducto);
+productRouter.delete('/productos/:id', deleteProducto);
 productRouter.get('/categorias/:id', searchCategoriaById);
 productRouter.post('/categorias', createCategoria);
 productRouter.put('/categorias/:id', patchCategoria);
