@@ -3,7 +3,7 @@
 GET http://localhost:5000/productos
 
 ### Obtener un Producto por ID
-GET http://localhost:5000/productos/3
+GET http://localhost:5000/productos/1
 
 ### Buscar Productos por Nombre
 GET http://localhost:5000/productos/search?nombre=Sony
@@ -52,3 +52,34 @@ Content-Type: application/json
    "disponible": false
 }
 //fallará por falta de descripción
+
+
+### Listar Categorías
+
+GET http://localhost:5000/categorias
+
+### Obtener una Categoría por ID
+
+GET http://localhost:5000/categorias/4
+
+### Crear una Categoría
+
+POST http://localhost:5000/categorias
+Content-Type: application/json
+
+{
+  "nombre": "Otro"
+}
+
+### Actualizar una Categoría por ID
+
+PUT http://localhost:5000/categorias/5
+Content-Type: application/json
+
+{
+  "nombre": "Electrónica"
+}
+
+### Borrar una Categoría por ID
+
+DELETE http://localhost:5000/categorias/7

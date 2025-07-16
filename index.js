@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
 });
 
 //rutas de la API
-app.use('/productos', apiRoutes);
+app.use('/', apiRoutes);
 
 app.use((req, res) => {
     res.status(404).json(
