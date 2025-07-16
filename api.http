@@ -3,7 +3,7 @@
 GET http://localhost:5000/productos
 
 ### Obtener un Producto por ID
-GET http://localhost:5000/productos/1
+GET http://localhost:5000/productos/2
 
 ### Buscar Productos por Nombre
 GET http://localhost:5000/productos/search?nombre=Sony
@@ -27,19 +27,19 @@ Content-Type: application/json
 
 
 ### Actualizar un Producto por ID
-PUT http://localhost:5000/productos/11
+PUT http://localhost:5000/productos/3
 Content-Type: application/json
 
 {
   "nombre": "Xbox Pro Controller",
   "precio": 3150.49,
-  "disponible": 0,
-  "descripcion": "Control inalámbrico con diseño ergonómico y compatibilidad multiplataforma. versión Pro con accesorios y botones extra."
-  "categoria": 2
+  "descripcion": "Control inalámbrico con diseño ergonómico y compatibilidad multiplataforma. versión Pro con accesorios y botones extra.",
+  "disponible": false,
+  "categoria_id": 2
 }
 
 ### Borrar un Producto por ID
-DELETE http://localhost:5000/productos/12
+DELETE http://localhost:5000/productos/2
 
 # ### Obtener los Productos Disponibles
 # GET http://localhost:5000/productos/disponibles
@@ -68,9 +68,9 @@ PUT http://localhost:5000/categorias/5
 Content-Type: application/json
 
 {
-  "nombre": "Electrónica"
+  "nombre": "Limpieza"
 }
 
 ### Borrar una Categoría por ID
 
-DELETE http://localhost:5000/categorias/7
+DELETE http://localhost:5000/categorias/6

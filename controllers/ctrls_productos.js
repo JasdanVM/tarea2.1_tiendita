@@ -130,10 +130,10 @@ export const patchProducto = async (req, res) => {
 
     const data = req.body
 
-    const { success, error, data: safeData } = validateProducto(data)
+    const { success, error, data: safeData } = await validateProducto(data)
 
     if (!success) {
-        res.status(400).json(error)
+        return res.status(400).json(error)
     }
 
     try {
@@ -144,7 +144,7 @@ export const patchProducto = async (req, res) => {
             });
         }
 
-        const response = await updateProducto(parsedId);
+        const response = await updateProducto(parsedId, safeData);
 
         // res.json({
         //     message: 'Producto eliminado correctamente',
@@ -158,10 +158,9 @@ export const patchProducto = async (req, res) => {
     } catch (error) {
         console.error(error);
         return res.status(500).json({
-            message: 'Error al eliminar el producto',
+            message: 'Error al actualizar el producto',
         });
     }
-
 
 }
 
@@ -325,7 +324,7 @@ export const patchCategoria = async (req, res) => {
             });
         }
 
-        const response = await updateCategoria(parsedId, safeData);
+        const response = await updateCategoria(parsedId, safeData.nombre);
 
         res.json({
             message: 'Categoría actualizada correctamente',
